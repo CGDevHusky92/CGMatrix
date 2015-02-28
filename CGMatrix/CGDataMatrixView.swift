@@ -266,6 +266,24 @@ public class CGDataMatrixView: UIView, UICollectionViewDelegate, UICollectionVie
         matrixCollectionView.registerNib(cellNib, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
+    /* Class Registration */
+    
+    public func registerClass(cellClass: AnyClass?, forSingleHeaderCellWithReuseIdentifier reuseIdentifier: String) {
+        headerCollectionView.registerClass(cellClass, forCellWithReuseIdentifier: reuseIdentifier)
+    }
+    
+    public func registerClass(cellClass: AnyClass?, forColumnCellWithReuseIdentifier reuseIdentifier: String) {
+        columnNameCollectionView.registerClass(cellClass, forCellWithReuseIdentifier: reuseIdentifier)
+    }
+    
+    public func registerClass(cellClass: AnyClass?, forRowCellWithReuseIdentifier reuseIdentifier: String) {
+        rowNameCollectionView.registerClass(cellClass, forCellWithReuseIdentifier: reuseIdentifier)
+    }
+    
+    public func registerClass(cellClass: AnyClass?, forMatrixCellWithReuseIdentifier reuseIdentifier: String) {
+        matrixCollectionView.registerClass(cellClass, forCellWithReuseIdentifier: reuseIdentifier)
+    }
+    
     /* Hack To Have Two CollectionViews Scroll Together */
     
     var tempScrollView: UIScrollView?
