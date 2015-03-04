@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CGSubExtender
 
 @objc public protocol CGDataMatrixDelegate {
     
@@ -130,6 +131,26 @@ public class CGDataMatrixView: UIView, UICollectionViewDelegate, UICollectionVie
         self.rowNameCollectionView.reloadData()
         self.columnNameCollectionView.reloadData()
         self.matrixCollectionView.reloadData()
+    }
+    
+    /**
+    * Generate Array with times is a convenience method for schedulers
+    *
+    * @parameter startTime : 0.0 - 23.999 based on military time
+    * @parameter endTime   : 0 - 23.999 based on military time
+    * @parameter interval  : 0.0 - 8.0 based on minutes per hour so 45 min intervals is 0.75 or 3/4 of an hour
+    */
+    public func generateArrayWithStartingDate(startDate: NSDate, andEndDate endDate: NSDate, withMinuteInterval minutes: Int) -> [String] {
+        let interval: Float = Float(minutes) / 60.0
+        assert(interval <= 8.0 && interval >= 0.0)
+        
+        let startHour = Float(startDate.hour())
+        let startTime = startHour + Float(startDate.minutes()) / 60.0
+        
+        let endHour = Float(endDate.hour())
+        let endTime = endHour + Float(endDate.minutes()) / 60.0
+        
+        return generateArrayWithStartingTime(startTime, andEndTime: endTime, withInterval: interval)
     }
     
     /**
