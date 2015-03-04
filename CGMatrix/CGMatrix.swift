@@ -56,6 +56,8 @@ public class CGMatrix<T where T: Equatable, T: Hashable>: NSObject {
     
     override init() {
         fixedRows = false
+        numFixedRows = 0
+        numFixedColumns = 0
         super.init()
     }
     

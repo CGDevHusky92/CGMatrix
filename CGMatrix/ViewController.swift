@@ -73,7 +73,7 @@ class ViewController: UIViewController, CGDataMatrixDelegate, CGDataMatrixDataSo
     
     func dataMatrixCellForSingleHeader(singleCollectionView: UICollectionView) -> UICollectionViewCell {
         let indexPath: NSIndexPath = NSIndexPath(forItem: 0, inSection: 0)
-        var cell: TestCollectionViewCell = singleCollectionView.dequeueReusableCellWithReuseIdentifier("SingleIdentifier", forIndexPath: indexPath) as TestCollectionViewCell
+        var cell: TestCollectionViewCell = singleCollectionView.dequeueReusableCellWithReuseIdentifier("SingleIdentifier", forIndexPath: indexPath) as! TestCollectionViewCell
         
         cell.textLabel.text = "";
         
@@ -81,7 +81,7 @@ class ViewController: UIViewController, CGDataMatrixDelegate, CGDataMatrixDataSo
     }
     
     func dataMatrix(columnCollectionView: UICollectionView, cellForColumnAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell: TestCollectionViewCell = columnCollectionView.dequeueReusableCellWithReuseIdentifier("ColumnIdentifier", forIndexPath: indexPath) as TestCollectionViewCell
+        var cell: TestCollectionViewCell = columnCollectionView.dequeueReusableCellWithReuseIdentifier("ColumnIdentifier", forIndexPath: indexPath) as! TestCollectionViewCell
         
         cell.textLabel.text = columnNames[indexPath.row];
         
@@ -89,7 +89,7 @@ class ViewController: UIViewController, CGDataMatrixDelegate, CGDataMatrixDataSo
     }
     
     func dataMatrix(rowCollectionView: UICollectionView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell: TestCollectionViewCell = rowCollectionView.dequeueReusableCellWithReuseIdentifier("RowIdentifier", forIndexPath: indexPath) as TestCollectionViewCell
+        var cell: TestCollectionViewCell = rowCollectionView.dequeueReusableCellWithReuseIdentifier("RowIdentifier", forIndexPath: indexPath) as! TestCollectionViewCell
         
         cell.textLabel.text = rowNames[indexPath.row];
         
@@ -97,7 +97,7 @@ class ViewController: UIViewController, CGDataMatrixDelegate, CGDataMatrixDataSo
     }
     
     func dataMatrix(matrixCollectionView: UICollectionView, cellForMatrixItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell: TestCollectionViewCell = matrixCollectionView.dequeueReusableCellWithReuseIdentifier("MatrixIdentifier", forIndexPath: indexPath) as TestCollectionViewCell
+        var cell: TestCollectionViewCell = matrixCollectionView.dequeueReusableCellWithReuseIdentifier("MatrixIdentifier", forIndexPath: indexPath) as! TestCollectionViewCell
         
         let coord: (Int, Int) = testView.coordinateForIndexPath(indexPath)
         let text = matrix[coord.0, coord.1]
