@@ -80,7 +80,6 @@ public class CGDataMatrixView: UIView, UICollectionViewDelegate, UICollectionVie
         }
     }
     
-    
     /* Left View and Subviews */
     
     var leftView: UIView!
@@ -109,8 +108,8 @@ public class CGDataMatrixView: UIView, UICollectionViewDelegate, UICollectionVie
     public var delegate: CGDataMatrixDelegate?
     public var dataSource: CGDataMatrixDataSource?
     
-    public override init() {
-        super.init()
+    public init() {
+        super.init(frame: CGRectZero)
         self.setupView()
     }
     
